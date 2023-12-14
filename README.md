@@ -65,6 +65,8 @@ json 파일의 구성 예시는 다음과 같다.
 
 ResNet은 Residual Network의 줄임말로 신경망이 깊어질수록 발생하는 기울기 소실 문제와 레이어가 많을수록 학습 오류가 증가하는 문제를 해결하기 위해 하나 이상의 레이어를 건너 뛰는 Shortcut Connection을 만들어 Residual Block이라는 새로운 구조를 형성하는 신경망 구조이다. ResNet18은 총 18개의 가중치가 있는 레이어를 사용한 경우를 말한다. (논문 Deep Residual Learning for Image Recognition 참조)
 
+---
+
 본 프로젝트는 2가지 구조에 대한 모델을 제시한다. 기본적으로 위에서 소개한 ResNet18을 사전 학습한 모델을 가져와 전이 학습을 한다는 공통점이 존재하지만, 분류 방식에서의 차이를 둔 구조이다.
 
 첫 번째 구조는 multi label classification을 하는 구조로, 이미지를 입력으로 받아 11개의 재료에 대하여 각 재료가 존재할 확률을 나타내는 길이 11짜리 벡터를 출력한다.
@@ -76,3 +78,8 @@ ResNet은 Residual Network의 줄임말로 신경망이 깊어질수록 발생�
 ![image](https://github.com/mygummy/AI_Project_Team9/assets/50257084/82cb0208-5d00-4a21-a167-b411d11ba443)
 
 두 모델 중에 각각의 재료를 독립적으로 처리하는 모델보다 Multi Label Classification을 하는 모델이 더 높은 성능을 보일 것이라는 가정하고, Baseline Model은 각 Label에 대한 독립적인 모델을 학습시킨 방식을 선정하였다.
+
+## Evaluation
+
+알레르기 반응의 경우 실제 음식에 해당 재료가 포함된 경우에 확실하게 양성임을 알려주는 것이 중요하기 때문에, 프로젝트의 특이성을 고려하여 Confusion Matrix에 기반한 대표적인 평가 지표 Accuracy, Precision, Recall 중 Recall을 주요 평가 지표로 선정하여 평가를 진행하고자 하였다.
+
