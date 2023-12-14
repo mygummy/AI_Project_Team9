@@ -1,0 +1,5 @@
+outs:
+- md5: baaf2996f8ca65ca61ff9c00457ef08b
+  size: 250000000
+  hash: md5
+  path: file.dat
